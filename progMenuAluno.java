@@ -22,38 +22,19 @@ public class progMenuAluno {
 			progMenuAluno.cadastrarDisciplinas();
 			break;
 		case 3:
-			progMenuAluno.sairDoSistema();
+			System.out.println("Obrigada por utilizar nosso sistema.");
+			System.exit(0);
 			break;
 		default:
-			progMenuAluno.opcaoInvalida();
+			System.out.println("Opção inválida!");
+			progMenuAluno.menu();
+			break;
 
 		}
 		s.close();
 	}
 
-	private static void opcaoInvalida() {
-		Scanner sc = new Scanner(System.in);
-		int opcao = 0;
-		while (opcao != 1 && opcao != 2 && opcao != 3) {
-			System.out.println("Informe uma opção válida: ");
-			opcao = sc.nextInt();
-		}
-		if (opcao == 1) {
-			cadastrarAluno();
-		} else if (opcao == 2) {
-			cadastrarDisciplinas();
-		} else if (opcao == 3) {
-			sairDoSistema();
-		}
-		sc.close();
 
-	}
-
-	private static void sairDoSistema() {
-
-		System.out.println("***Obrigada por utilizar nosso sistema!***");
-
-	}
 
 	private static void cadastrarDisciplinas() {
 
@@ -96,10 +77,10 @@ public class progMenuAluno {
 		}
 		if (rel == 1) {
 			for (int i1 = 0; i1 < disc.length; i1++) {
-				System.out.println("Disciplina 1 - " + disc[i1].d1);
-				System.out.println("Disciplina 2 - " + disc[i1].d2);
-				System.out.println("Disciplina 3 - " + disc[i1].d3);
-				System.out.println("Disciplina 4 - " + disc[i1].d4);
+				System.out.printf("Disciplina 01: %s. \nDisciplina 02: %s. \nDisciplina 03: %s. \nDisciplina 04: %s", 
+						disc[i1].d1, disc[i1].d2, disc[i1].d3, disc[i1].d4);
+				
+				System.out.println(" ");
 				for (int i2 = 0; i2 < disc[i1].dOpc.length; i2++) {
 					if (disc[i1].dOpc[i2] != null) {
 						System.out.println((i2 + 1) + " º Disciplina Opcional: " + disc[i1].dOpc[i2]);
@@ -116,7 +97,8 @@ public class progMenuAluno {
 					progMenuAluno.menu();
 
 				} else if (x == 'N' || x == 'n') {
-					sairDoSistema();
+					System.out.println("Obrigada por utilizar nosso sistema!");
+					System.exit(0);
 
 				}
 
@@ -124,7 +106,7 @@ public class progMenuAluno {
 
 		} else if (rel == 2) {
 			System.out.println("Relatório não impresso...");
-			sairDoSistema();
+			System.exit(0);
 		}
 
 		sc.close();
@@ -177,15 +159,12 @@ public class progMenuAluno {
 		}
 		if (rel == 1) {
 			for (int j = 0; j < aluno.length; j++) {
-				System.out.println("Nome: " + aluno[j].nome);
-				System.out.println("Semestre: " + aluno[j].semestre);
-				System.out.println("Sala: " + aluno[j].sala);
-				System.out.println("Curso: " + aluno[j].curso);
-				System.out.println("Rua: " + aluno[j].en.rua);
-				System.out.println("Bairro: " + aluno[j].en.bairro);
-				System.out.println("CEP: " + aluno[j].en.cep);
-				System.out.println("Cidade: " + aluno[j].en.cidade);
-				System.out.println("Estado: " + aluno[j].en.estado);
+				System.out.printf("Nome: %s. \nSemestre: %d. \nSala: %d. \nCurso: %s. \nRua: %s. \nBairro: %s. "
+						+ "\nCEP: %sd. \nCidade: %s. \nEstado: %s", aluno[j].nome, aluno[j].semestre, aluno[j].sala,
+						aluno[j].curso, aluno[j].en.rua, aluno[j].en.bairro, aluno[j].en.cep, aluno[j].en.cidade,
+						aluno[j].en.estado
+						);
+			
 				for (int i = 0; i < aluno[j].notas.length; i++) {
 					System.out.println("Nota " + (i + 1) + ": " + aluno[j].notas[i]);
 				}
@@ -212,7 +191,8 @@ public class progMenuAluno {
 				progMenuAluno.menu();
 
 			} else {
-				sairDoSistema();
+				System.out.println("Obrigada por utilizar nosso sistema!");
+				System.exit(0);
 
 			}
 
